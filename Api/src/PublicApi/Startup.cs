@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -69,6 +70,8 @@ namespace MistyDaycare.PublicApi
 
 
             services.AddControllers();
+
+            services.AddAutoMapper(typeof(Startup).Assembly);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Misty Daycare API", Version = "v1" });
