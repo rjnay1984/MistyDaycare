@@ -4,11 +4,10 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using MistyDaycare.ApplicationCore.Constants;
-using MistyDaycare.ApplicationCore.Extensions;
 using MistyDaycare.PublicApi.Endpoints.Authorization;
 using Xunit;
 
-namespace Api.tests.FunctionalTests.PublicApi.Endpoints.Authorization
+namespace MistyDaycare.FunctionalTests.PublicApi.Endpoints.Authorization
 {
     [Collection("Sequential")]
     public class Authenticate : IClassFixture<ApiTestFixture>

@@ -6,7 +6,7 @@ using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using MistyDaycare.ApplicationCore.Constants;
 
-namespace Api.tests.FunctionalTests.PublicApi
+namespace MistyDaycare.FunctionalTests.PublicApi
 {
     public class ApiTokenHelper
     {

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MistyDaycare.Infrastructure.Identity;
 using MistyDaycare.PublicApi;
 
-namespace Api.tests.FunctionalTests.PublicApi
+namespace MistyDaycare.FunctionalTests.PublicApi
 {
     public class ApiTestFixture : WebApplicationFactory<Startup>
     {
