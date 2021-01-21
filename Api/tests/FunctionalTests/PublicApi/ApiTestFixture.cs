@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using MistyDaycare.Infrastructure.Identity;
 using MistyDaycare.PublicApi;
+using MistyDaycare.Infrastructure.Data;
 
 namespace MistyDaycare.FunctionalTests.PublicApi
 {
@@ -28,6 +29,12 @@ namespace MistyDaycare.FunctionalTests.PublicApi
                 services.AddDbContext<AppIdentityDbContext>(options =>
                 {
                     options.UseInMemoryDatabase("Identity");
+                    options.UseInternalServiceProvider(provider);
+                });
+
+                services.AddDbContext<ApplicationDbContext>(options =>
+                {
+                    options.UseInMemoryDatabase("Application");
                     options.UseInternalServiceProvider(provider);
                 });
 
