@@ -13,6 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MistyDaycare.ApplicationCore.Constants;
 using MistyDaycare.ApplicationCore.Interfaces;
+using MistyDaycare.Infrastructure.Data;
 using MistyDaycare.Infrastructure.Identity;
 
 namespace MistyDaycare.PublicApi
@@ -31,6 +32,10 @@ namespace MistyDaycare.PublicApi
             // Identity Db Context
             services.AddDbContext<AppIdentityDbContext>(options => 
                 options.UseNpgsql(Configuration.GetConnectionString("IdentityConnection")));
+
+            // Database Context
+            services.AddDbContext<ApplicationDbContext>(options => 
+                options.UseNpgsql(Configuration.GetConnectionString("ApplicationContext")));
 
             ConfigureServices(services);
         }

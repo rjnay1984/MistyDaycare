@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using MistyDaycare.Infrastructure.Identity;
 using MistyDaycare.PublicApi;
+using MistyDaycare.Infrastructure.Data;
 
 namespace MistyDaycare.FunctionalTests.PublicApi
 {
@@ -31,6 +32,12 @@ namespace MistyDaycare.FunctionalTests.PublicApi
                     options.UseInternalServiceProvider(provider);
                 });
 
+                services.AddDbContext<ApplicationDbContext>(options =>
+                {
+                    options.UseInMemoryDatabase("Application");
+                    options.UseInternalServiceProvider(provider);
+                });
+
                 // Build the service provider.
                 var sp = services.BuildServiceProvider();
 
@@ -43,8 +50,6 @@ namespace MistyDaycare.FunctionalTests.PublicApi
 
                     var logger = scopedServices
                         .GetRequiredService<ILogger<ApiTestFixture>>();
-
-                    var identitydb = scopedServices.GetRequiredService<AppIdentityDbContext>();
 
                     try
                     {
