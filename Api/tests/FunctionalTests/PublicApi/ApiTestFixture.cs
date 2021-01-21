@@ -44,8 +44,6 @@ namespace MistyDaycare.FunctionalTests.PublicApi
                     var logger = scopedServices
                         .GetRequiredService<ILogger<ApiTestFixture>>();
 
-                    var identitydb = scopedServices.GetRequiredService<AppIdentityDbContext>();
-
                     try
                     {
                         // seed sample user data
