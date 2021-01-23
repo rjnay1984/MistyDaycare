@@ -10,7 +10,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  build_frontend:
 
     runs-on: ubuntu-latest
     env:
@@ -35,3 +35,5 @@ jobs:
       working-directory: ${{ env.working_directory }}
     - run: npm test
       working-directory: ${{ env.working_directory }}
+      env:
+        CI: true
